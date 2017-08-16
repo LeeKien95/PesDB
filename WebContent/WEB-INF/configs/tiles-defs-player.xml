@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="Player.Info" extends="Default.Web">
+		<put-attribute name="body" value="/player/player_info.jsp" />
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+		</put-list-attribute>
+	</definition>
+	
+	<definition name="Player.Add" extends="Default.Web">
+		<put-attribute name="body" value="/player/AddPlayer.jsp"/>
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+		</put-list-attribute>
+	</definition>
+	
+	<definition name="Player.Show" extends="Default.Web">
+		<put-attribute name="body" value="/player/ShowPlayers.jsp"/>
+		<put-list-attribute name="js">
+		</put-list-attribute>
+		<put-list-attribute name="css">
+		</put-list-attribute>
+	</definition>
+</tiles-definitions>

@@ -1,0 +1,95 @@
+package framgiavn.project01.web.business.impl;
+
+<<<<<<< HEAD
+import org.springframework.beans.factory.annotation.Autowired;
+
+=======
+>>>>>>> 534baa486239fdaaf41edb93c0ff4c10643dcb74
+import framgiavn.project01.web.business.UserBusiness;
+import framgiavn.project01.web.dao.UserDAO;
+import framgiavn.project01.web.info.UserInfo;
+import framgiavn.project01.web.model.User;
+
+public class UserBusinessImpl implements UserBusiness {
+
+<<<<<<< HEAD
+	@Autowired
+	public UserDAO userDAO;
+=======
+	private UserDAO userDAO;
+
+	public UserDAO getUserDAO() {
+		return userDAO;
+	}
+
+	public void setUserDAO(UserDAO userDAO) {
+		this.userDAO = userDAO;
+	}
+>>>>>>> 534baa486239fdaaf41edb93c0ff4c10643dcb74
+
+	@Override
+	public UserInfo findByUserId(Integer user_id) {
+		try {
+<<<<<<< HEAD
+			User u = userDAO.findByUserId(user_id);
+			return new UserInfo(u);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+=======
+			User u = getUserDAO().findByUserId(user_id);
+			return new UserInfo(u);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+>>>>>>> 534baa486239fdaaf41edb93c0ff4c10643dcb74
+	}
+
+	@Override
+	public UserInfo findByUsername(String username) {
+		try {
+<<<<<<< HEAD
+			User u = userDAO.findByUsername(username);
+			return new UserInfo(u);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+=======
+			User u = getUserDAO().findByUsername(username);
+			return new UserInfo(u);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+>>>>>>> 534baa486239fdaaf41edb93c0ff4c10643dcb74
+	}
+
+	@Override
+	public UserInfo addUser(UserInfo user) {
+		// TODO Auto-generated method stub
+		try {
+<<<<<<< HEAD
+			userDAO.addUser(user.toUser());
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			throw e;
+		}
+=======
+			System.out.println("Enter User Bussiness");
+			getUserDAO().addUser(user.toUser());
+			System.out.println("User Bussiness -> Dao returned");
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Exception at business");
+			e.printStackTrace();
+		}
+		System.out.println("finish business");
+>>>>>>> 534baa486239fdaaf41edb93c0ff4c10643dcb74
+		return user;
+	}
+
+}

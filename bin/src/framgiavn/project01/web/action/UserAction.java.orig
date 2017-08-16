@@ -1,0 +1,92 @@
+package framgiavn.project01.web.action;
+
+import java.util.ArrayList;
+
+<<<<<<< HEAD
+import org.springframework.beans.factory.annotation.Autowired;
+
+=======
+>>>>>>> 534baa486239fdaaf41edb93c0ff4c10643dcb74
+import com.opensymphony.xwork2.ActionSupport;
+
+import framgiavn.project01.web.business.UserBusiness;
+import framgiavn.project01.web.info.UserInfo;
+import framgiavn.project01.web.model.User;
+import framgiavn.project01.web.ulti.Logit2;
+
+public class UserAction extends ActionSupport {
+<<<<<<< HEAD
+	private static final long serialVersionUID = 1L;
+
+	private Logit2 log = Logit2.getInstance(UserAction.class);
+
+	@Autowired
+	private UserBusiness userBusiness;	
+	@Autowired
+	private UserInfo userBean;
+	
+	private ArrayList<UserInfo> users;
+
+=======
+
+	/**
+	 * 
+	 */
+	
+	private UserInfo userInfo = null;
+	
+	private static final long serialVersionUID = 1L;
+
+	 private Logit2 log = Logit2.getInstance(UserAction.class);
+
+	private UserBusiness userBusiness = null;	
+	private UserInfo userBean = new UserInfo();
+	private ArrayList<UserInfo> users;
+
+	public void setUserBusiness(UserBusiness userBusiness) {
+		this.userBusiness = userBusiness;
+	}
+
+	public UserInfo getUserBean() {
+		return userBean;
+	}
+
+	public void setUserBean(UserInfo userBean) {
+		this.userBean = userBean;
+	}
+
+>>>>>>> 534baa486239fdaaf41edb93c0ff4c10643dcb74
+	public String findByUserId() {
+		userBean = userBusiness.findByUserId(userBean.getUser_id());
+		return SUCCESS;
+	}
+
+	public String findByUsername() {
+		userBean = userBusiness.findByUsername(userBean.getUsername());
+		return SUCCESS;
+	}
+	
+	public String addUser() {
+<<<<<<< HEAD
+		UserInfo userInfo = userBusiness.addUser(userBean);
+		if(userInfo != null) return SUCCESS;
+		else return ERROR;
+	}
+
+	public String homePage() {
+		log.info("#####################################");
+=======
+		userInfo = userBusiness.addUser(userBean);
+		System.out.println("User Action -> returned");
+		if(userInfo != null) return SUCCESS;
+		return ERROR;
+	}
+
+	public String homePage() {
+		System.out
+				.println("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+>>>>>>> 534baa486239fdaaf41edb93c0ff4c10643dcb74
+		return SUCCESS;
+	}
+
+}

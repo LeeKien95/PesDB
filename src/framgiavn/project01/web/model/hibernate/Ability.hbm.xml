@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="framgiavn.project01.web.model.Ability" table="Ability"
+		dynamic-insert="true" dynamic-update="true">
+		<id name="player_id" type="java.lang.Integer">
+			<column name="player_id" />
+			<generator class="foreign">
+				<param name="property">player</param>
+			</generator>
+		</id>
+		
+		<property name="attackingProwess" column="attacking_prowess" type="java.lang.Integer"/>
+		<property name="ballControl" column="ball_control" type="java.lang.Integer"/>
+		<property name="dribbling" column="dribbling" type="java.lang.Integer"/>
+		<property name="lowPass" column="low_pass" type="java.lang.Integer"/>
+		<property name="loftedPass" column="lofted_pass" type="java.lang.Integer"/>
+		<property name="finishing" column="finishing" type="java.lang.Integer"/>
+		<property name="placeKicking" column="place_kicking" type="java.lang.Integer"/>
+		<property name="swerve" column="swerve" type="java.lang.Integer"/>
+		<property name="header" column="header" type="java.lang.Integer"/>
+		<property name="defensiveProwess" column="defensive_prowess" type="java.lang.Integer"/>
+		<property name="ballWinning" column="ball_winning" type="java.lang.Integer"/>
+		<property name="kickingPower" column="kicking_power" type="java.lang.Integer"/>
+		<property name="speed" column="speed" type="java.lang.Integer"/>
+		<property name="explosivePower" column="explosive_power" type="java.lang.Integer"/>
+		<property name="bodyControl" column="body_control" type="java.lang.Integer"/>
+		<property name="physicalContact" column="physical_contact" type="java.lang.Integer"/>
+		<property name="jump" column="jump" type="java.lang.Integer"/>
+		<property name="stamina" column="stamina" type="java.lang.Integer"/>
+		<property name="goalkeeping" column="goalkeeping" type="java.lang.Integer"/>
+		<property name="catching" column="catching" type="java.lang.Integer"/>
+		<property name="clearing" column="clearing" type="java.lang.Integer"/>
+		<property name="reflexes" column="reflexes" type="java.lang.Integer"/>
+		<property name="coverage" column="coverage" type="java.lang.Integer"/>
+		<property name="form" column="form" type="java.lang.Integer"/>
+		<property name="injuryResistance" column="injury_resistance" type="java.lang.Integer"/>
+		<property name="weakFootUsage" column="weak_foot_usage" type="java.lang.Integer"/>
+		<property name="weakFootAccuracy" column="weakFootAccuracy" type="java.lang.Integer"/>
+		<property name="overallRating" column="overall_rating" type="java.lang.Integer"/>
+		
+		<one-to-one name="player" class="framgiavn.project01.web.model.Player" constrained="true">
+		</one-to-one>
+		
+		
+	</class>
+</hibernate-mapping>
+
