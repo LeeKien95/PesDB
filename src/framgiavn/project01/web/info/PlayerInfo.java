@@ -17,7 +17,7 @@ public class PlayerInfo {
 	public int height;
 	public int weight;
 	public int strongFoot;
-	public Set<String> positions;
+	public List<Integer> positions;
 	public Set<String> skills;
 	public Ability ability;
 	
@@ -69,10 +69,10 @@ public class PlayerInfo {
 	public void setStrongFoot(int strongFoot) {
 		this.strongFoot = strongFoot;
 	}
-	public Set<String> getPositions() {
+	public List<Integer> getPositions() {
 		return positions;
 	}
-	public void setPositions(Set<String> position) {
+	public void setPositions(List<Integer> position) {
 		this.positions = position;
 	}
 	public Ability getAbility() {
@@ -103,7 +103,7 @@ public class PlayerInfo {
 		setHeight(p.getHeight());
 		setName(p.getName());
 		setNationality(p.getNationality());
-		setPositions(p.getPositions());
+//		setPositions(p.getPositions());
 		setRegion(p.getRegion());
 		setStrongFoot(p.getStrongFoot());
 		setWeight(p.getWeight());
@@ -119,7 +119,7 @@ public class PlayerInfo {
 		p.setName(getName());
 		p.setSkills(getSkills());
 		p.setNationality(getNationality());
-		p.setPositions(getPositions());
+//		p.setPositions(getPositions());
 		p.setRegion(getRegion());
 		p.setStrongFoot(getStrongFoot());
 		p.setWeight(getWeight());

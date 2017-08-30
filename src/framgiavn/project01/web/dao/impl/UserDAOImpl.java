@@ -10,12 +10,13 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import framgiavn.project01.web.dao.UserDAO;
 import framgiavn.project01.web.model.User;
 import framgiavn.project01.web.ulti.DAOSessionFactory;
 
-public class UserDAOImpl extends DAOSessionFactory implements UserDAO {
+public class UserDAOImpl extends HibernateDaoSupport implements UserDAO {
 
 	private static final Logger log = Logger.getLogger(UserDAOImpl.class);
 
@@ -26,12 +27,12 @@ public class UserDAOImpl extends DAOSessionFactory implements UserDAO {
 
 	public User findByUserId(Integer user_id, boolean lock) {
 		try {
-			Query query = getSession().getNamedQuery("User.SelectUserByUserId");
+			Query query = getHibernateTemplate().getSessionFactory().getCurrentSession().getNamedQuery("User.SelectUserByUserId");
 			if (lock)
 				query.setLockMode("User", LockMode.UPGRADE);
 			query.setParameter("user_id", user_id);
 			return (User) query.uniqueResult();
-		} catch (RuntimeException re) {
+		} catch (Exception re) {
 			log.error("get failed", re);
 			throw re;
 		}
@@ -47,7 +48,7 @@ public class UserDAOImpl extends DAOSessionFactory implements UserDAO {
 
 	@Override
 	public void addUser(User user) {
-		Session session = getSession();
+		Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
@@ -67,7 +68,7 @@ public class UserDAOImpl extends DAOSessionFactory implements UserDAO {
 	}
 	
 	public List<User> listUser(){
-		Session session = getSession();
+		Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
 		Transaction tx = null;
 		List result = null;
 		try {

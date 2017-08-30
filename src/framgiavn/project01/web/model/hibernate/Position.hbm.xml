@@ -14,7 +14,7 @@
 		
 		<set name="players" table="player_position" inverse="false" lazy="true" fetch="select">
 			<key column="position_id"/>
-			<many-to-many class="framgiavn.project01.web.model.Player" column="player_id"></many-to-many>
+			<one-to-many class="framgiavn.project01.web.model.Player" />
 		</set>
 		
 	</class>

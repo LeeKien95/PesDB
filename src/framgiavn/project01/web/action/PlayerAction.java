@@ -11,6 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import framgiavn.project01.web.business.PlayerBusiness;
 import framgiavn.project01.web.info.PlayerInfo;
+import framgiavn.project01.web.info.PositionInfo;
 
 public class PlayerAction extends ActionSupport {
 	/**
@@ -22,7 +23,8 @@ public class PlayerAction extends ActionSupport {
 	private PlayerInfo playerBean;
 	private List<PlayerInfo> players;
 	private List<String> skillList;
-	private List<String> positionList;
+	private List<PositionInfo> positionList;
+	private List<Integer> positionIdList;
 	private String skills;
 	private String positions;
 	
@@ -82,12 +84,8 @@ public class PlayerAction extends ActionSupport {
 		this.skillList = skillList;
 	}
 
-	public List<String> getPositionList() {
+	public List<PositionInfo> getPositionList() {
 		return positionList;
-	}
-
-	public void setPositionList(List<String> positionList) {
-		this.positionList = positionList;
 	}
 
 	public String getSkills() {
@@ -114,6 +112,14 @@ public class PlayerAction extends ActionSupport {
 		this.playerBusiness = playerBusiness;
 	}
 
+	public List<Integer> getPositionIdList() {
+		return positionIdList;
+	}
+
+	public void setPositionIdList(List<Integer> positionIdList) {
+		this.positionIdList = positionIdList;
+	}
+
 	public PlayerInfo getPlayerBean() {
 		return playerBean;
 	}
@@ -131,8 +137,9 @@ public class PlayerAction extends ActionSupport {
 	}
 
 	public String addPlayer() {
-		playerBean.setSkills(toSet(skills));
-		playerBean.setPositions(toSet(positions));
+//		playerBean.setSkills(toSet(skills));
+//		playerBean.setPositions(toSet(positions));
+		playerBean.setPositions(positionIdList);
 		playerBusiness.addPlayer(playerBean);
 		return SUCCESS;
 	}
@@ -158,7 +165,7 @@ public class PlayerAction extends ActionSupport {
 	
 	public String initializeList() {
 		skillList = new ArrayList<String>();
-		positionList = new ArrayList<String>();
+		positionList = new ArrayList<PositionInfo>();
 		skillList.add("Marseille Turn");
 		skillList.add("Sombero");
 		skillList.add("Cut Behind & Turn");
@@ -188,19 +195,19 @@ public class PlayerAction extends ActionSupport {
 		skillList.add("Super-sub");
 		skillList.add("Fighting Spirit");
 		
-		positionList.add("GK");
-		positionList.add("CB");
-		positionList.add("LB");
-		positionList.add("RB");
-		positionList.add("DMF");
-		positionList.add("CMF");
-		positionList.add("RMF");
-		positionList.add("LMF");
-		positionList.add("AMF");
-		positionList.add("RWF");
-		positionList.add("LWF");
-		positionList.add("SS");
-		positionList.add("CF");
+		positionList.add(new PositionInfo(1, "GK"));
+		positionList.add(new PositionInfo(2, "CB"));
+		positionList.add(new PositionInfo(3, "LB"));
+//		positionList.add("RB");
+//		positionList.add("DMF");
+//		positionList.add("CMF");
+//		positionList.add("RMF");
+//		positionList.add("LMF");
+//		positionList.add("AMF");
+//		positionList.add("RWF");
+//		positionList.add("LWF");
+//		positionList.add("SS");
+//		positionList.add("CF");
 		
 		log.info(skillList);
 		log.info(positionList);

@@ -8,7 +8,7 @@
   <s:select label="Strong Foot" name="playerBean.strongFoot" list="#{0: 'Right', 1: 'Left'}" value="%{'Right'}"/>
   <s:checkboxlist label="Skills" list="skillList" name="skills"/>
   <br>
-  <s:checkboxlist label="Positions" list="positionList" name="positions"/>
+  <s:checkboxlist listKey="position_id" listValue="name" label="Positions" list="positionList" name="positionIdList"/>
   <s:submit />
 </s:form>
 

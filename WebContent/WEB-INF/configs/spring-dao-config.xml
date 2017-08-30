@@ -5,14 +5,29 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
 	http://www.springframework.org/schema/context 
 	http://www.springframework.org/schema/context/spring-context-4.1.xsd">
-
-
-	<context:annotation-config/>
 	
 	<bean id="UserDAO" class="framgiavn.project01.web.dao.impl.UserDAOImpl">
+	   <property name="sessionFactory">
+	      <ref bean="sessionFactory"/>
+	   </property>
 	</bean>
 	
 	<bean id="PlayerDAO" class="framgiavn.project01.web.dao.impl.PlayerDAOImpl">
+	<property name="sessionFactory">
+	      <ref bean="sessionFactory"/>
+	   </property>
+	</bean>
+	
+	<bean id="PositionDAO" class="framgiavn.project01.web.dao.impl.PositionDAOImpl">
+	<property name="sessionFactory">
+	      <ref bean="sessionFactory"/>
+	   </property>
+	</bean>
+	
+	<bean id="PlayerPositionDAO" class="framgiavn.project01.web.dao.impl.PlayerPositionDAOImpl">
+	<property name="sessionFactory">
+	      <ref bean="sessionFactory"/>
+	   </property>
 	</bean>
 	
 </beans>

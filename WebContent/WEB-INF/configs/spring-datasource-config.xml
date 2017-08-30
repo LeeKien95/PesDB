@@ -47,6 +47,7 @@
 				<value>framgiavn/project01/web/model/hibernate/Player.hbm.xml</value>
 				<value>framgiavn/project01/web/model/hibernate/Ability.hbm.xml</value>
 				<value>framgiavn/project01/web/model/hibernate/Position.hbm.xml</value>
+				<value>framgiavn/project01/web/model/hibernate/PlayerPosition.hbm.xml</value>
 				<value>framgiavn/project01/web/model/hibernate/Skill.hbm.xml</value>
 			</list>
 		</property>
@@ -54,7 +55,7 @@
 	</bean>
 
 	<!-- Transaction manager for a single Hibernate SessionFactory -->
-	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
@@ -65,6 +66,7 @@
 		<property name="transactionAttributes">
 			<props>
 				<prop key="create*">PROPAGATION_REQUIRED</prop>
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
 				<prop key="save*">PROPAGATION_REQUIRED</prop>
 				<prop key="remove*">PROPAGATION_REQUIRED</prop>
 				<prop key="*">PROPAGATION_SUPPORTS</prop>

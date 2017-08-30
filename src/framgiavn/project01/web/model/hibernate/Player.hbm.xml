@@ -38,10 +38,11 @@
 			<column name="strong_foot"/>
 		</property>
 		
-		<set name="positions" table="player_position" inverse="true" lazy="true" fetch="select" cascade="all">
+		<list name="positions" table="player_position" inverse="true" lazy="true" fetch="select">
       		<key column="player_id"/>
-      		<many-to-many class="framgiavn.project01.web.model.Position" column="position_id"/>
-      	</set>
+      		<index column="position_id"/>
+      		<one-to-many class="framgiavn.project01.web.model.Position"/>
+      	</list>
       	
       	<set name="skills" table="player_skill" inverse="true" lazy="true" fetch="select" cascade="all">
       		<key column="player_id"/>

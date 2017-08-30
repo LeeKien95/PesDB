@@ -3,21 +3,39 @@ package framgiavn.project01.web.business.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
 import framgiavn.project01.web.business.PlayerBusiness;
 import framgiavn.project01.web.dao.PlayerDAO;
+import framgiavn.project01.web.dao.PlayerPositionDAO;
+import framgiavn.project01.web.dao.PositionDAO;
 import framgiavn.project01.web.info.PlayerInfo;
 import framgiavn.project01.web.model.Player;
+import framgiavn.project01.web.model.PlayerPosition;
+import framgiavn.project01.web.model.Position;
 
 public class PlayerBusinessImpl implements PlayerBusiness {
-	
-	public PlayerDAO playerDAO;
-	
+
+	private PlayerDAO playerDAO;
+	private PlayerPositionDAO playerPositionDAO;
+
+	private static final Logger log = Logger.getLogger(PlayerBusinessImpl.class);
+
 	public PlayerDAO getPlayerDAO() {
 		return playerDAO;
 	}
 
 	public void setPlayerDAO(PlayerDAO playerDAO) {
 		this.playerDAO = playerDAO;
+	}
+
+
+	public PlayerPositionDAO getPlayerPositionDAO() {
+		return playerPositionDAO;
+	}
+
+	public void setPlayerPositionDAO(PlayerPositionDAO playerPositionDAO) {
+		this.playerPositionDAO = playerPositionDAO;
 	}
 
 	public List<PlayerInfo> findPlayerByName(String name) {
@@ -62,11 +80,18 @@ public class PlayerBusinessImpl implements PlayerBusiness {
 		return null;
 	}
 
-	public void addPlayer(PlayerInfo p) {
+	public void addPlayer(PlayerInfo playerInfo) {
 		try {
-			playerDAO.addPlayer(p.toPlayer());
+			Player player = playerInfo.toPlayer();
+			playerDAO.addPlayer(player);
+			for (Integer id : playerInfo.getPositions()) {
+				PlayerPosition playerPosition = new PlayerPosition();
+				playerPosition.setPosition_id(id);
+				playerPosition.setPlayer_id(player.getPlayer_id());
+				playerPositionDAO.save(playerPosition);
+			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error(e);
 			throw e;
 		}
 	}

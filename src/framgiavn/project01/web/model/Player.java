@@ -16,7 +16,7 @@ public class Player {
 	public int height;
 	public int weight;
 	public int strongFoot;
-	public Set<String> positions;
+	public List<Position> positions;
 	public Set<String> skills;
 	public Ability ability;
 	
@@ -77,10 +77,10 @@ public class Player {
 	public void setSkills(Set<String> skills) {
 		this.skills = skills;
 	}
-	public Set<String> getPositions() {
+	public List<Position> getPositions() {
 		return positions;
 	}
-	public void setPositions(Set<String> positions) {
+	public void setPositions(List<Position> positions) {
 		this.positions = positions;
 	}
 	public Ability getAbility() {

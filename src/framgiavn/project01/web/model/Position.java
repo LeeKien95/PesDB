@@ -3,7 +3,7 @@ package framgiavn.project01.web.model;
 import java.util.List;
 
 public class Position {
-	private int position_id;
+	private Integer position_id;
 	public String name;
 	private List<Player> players;
 	
@@ -13,10 +13,10 @@ public class Position {
 	public void setPlayers(List<Player> players) {
 		this.players = players;
 	}
-	public int getPosition_id() {
+	public Integer getPosition_id() {
 		return position_id;
 	}
-	public void setPosition_id(int position_id) {
+	public void setPosition_id(Integer position_id) {
 		this.position_id = position_id;
 	}
 	public String getName() {

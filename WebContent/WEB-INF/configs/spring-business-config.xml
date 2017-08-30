@@ -24,6 +24,7 @@
 		<property name="target">
 			<bean class="framgiavn.project01.web.business.impl.PlayerBusinessImpl">
 				<property name="playerDAO" ref="PlayerDAO"/>
+				<property name="playerPositionDAO" ref="PlayerPositionDAO"/>
 			</bean>
 		</property>
 	</bean>
